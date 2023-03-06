@@ -18,6 +18,7 @@
 
 <div id="crypto-plot">
     <script>
+        // @ts-ignore
         var figure = {{plot_schema | safe}};
         Plotly.plot('crypto-plot', figure.data, figure.layout);
     </script>
