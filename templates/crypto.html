@@ -1,0 +1,46 @@
+<!-- Inherit from the base template -->
+{% extends 'base.html' %}
+
+<!-- Implement the title block -->
+{% block title %}{{name}}{% endblock %}
+
+<!-- Implement the body block -->
+{% block body %}
+
+<h1>{{name}}</h1>
+<p>
+    Current price: {{value}} USD 
+</p>
+
+<!-- Plot cryptocurrency prices -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+
+<div id="crypto-plot">
+    <script>
+        var figure = {{plot_schema | safe}};
+        Plotly.plot('crypto-plot', figure["data"], figure["layout"]);
+    </script>
+</div>
+
+<!-- Button to switch between cryptocurrencies. -->
+<p>
+    <button class="floated" type="button">
+        {% if index < max_index %}
+            <!-- Link to the next crypto -->
+            <a href="{{url_for('crypto', index=index+1)}}">Next crypto</a>
+    
+        {% else %}    
+            <!-- Link to the first coin -->
+            <a href="{{url_for('crypto', index=0)}}">Start over</a>
+    
+        {% endif %}
+    </button>
+
+    <!-- Button to update prices --> 
+    <form action="{{url_for('crypto', index=index)}}" method="post">
+        <button class=floated type="submit">Update</button>
+    </form>
+</p>
+
+{% endblock %}

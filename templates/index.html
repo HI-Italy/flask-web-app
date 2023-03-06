@@ -1,0 +1,30 @@
+<!-- Inherit from the base template -->
+{% extends 'base.html' %}
+
+<!-- Implement the title block -->
+{% block title %}Web app{% endblock %}
+
+<!-- Implement the body block -->
+{% block body %}
+<h1>Cryptocurrency app</h1>
+<p>
+    This web application will track eventual
+    price changes of several cryptocurrencies.
+</p>
+<p>
+    <!-- To build links to different cryptocurrencies,
+    we need to access the correct indexes, i.e.
+    0 => Bitcoin, 1 => Dogecoin, 2 => Ethereum.
+    In Python, people use enumerate() to access both
+    elements and indexes inside loops. Here we use
+    loop.index0 to get zero-based loop indexes.
+    -->
+
+    <ul>
+        <!-- Loop over the columns and get the links to the crypto pages -->
+        {% for name in names %}
+            <li><a href="{{url_for('crypto', index=loop.index0)}}">{{name}}</a></li>
+        {% endfor %}
+    </ul>
+</p>
+{% endblock %}

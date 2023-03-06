@@ -1,0 +1,64 @@
+body {
+    font-family: sans-serif;
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+h1 {
+  font-family: sans-serif;
+  margin-top: 2cm;
+  color: black;
+  text-align: left;
+  font-size: 50px;
+}
+
+ul.nav {
+  margin:0;
+  padding:0;
+  list-style:none;
+  height:36px; line-height:36px;
+  background:#d92626;
+  font-size:16px;
+}
+
+ul.nav li {
+    border-right:1px solid white;
+    float:left;
+}
+
+ul.nav a {
+    display:block;
+    padding:0 28px;
+    color: white;
+    text-decoration:none;
+}
+
+ul.nav a:hover,
+ul.nav li.current a {
+    background:#990000;
+}
+
+button.floated {
+  float:left;
+  margin-right:5px;
+  appearance: none;
+  background-color: #d92626;
+  border: 1px solid #990000;
+  border-radius: 6px;
+  color: white;
+  display: block;
+  cursor: pointer;
+  margin: 4px;
+  height:50px;
+  width:150px;
+  font-size:22px;
+}
+
+button.floated a {
+  color: white;
+  text-decoration:none;
+}
+
+button.floated:hover {
+  background-color: #990000;
+}
