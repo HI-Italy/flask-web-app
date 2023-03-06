@@ -6,7 +6,7 @@ import requests
 
 app = Flask(__name__)
 
-# The database is a dataframe
+# Load the dataframe
 db = load_db("crypto_data.csv")
 
 # Number of visits of the 'data' page
@@ -36,7 +36,10 @@ def data():
     global number_of_visits
     number_of_visits += 1
 
-    return render_template('data.html', number_of_visits=number_of_visits)
+    return render_template(
+        'data.html',
+        number_of_visits=number_of_visits
+    )
 
 
 @app.route("/about_us")
@@ -53,17 +56,16 @@ def about_us():
 def crypto(index):
     """Cryptocurrency pages.
     
-    Fuction to map cryptocurrencies on their respective
-    pages. To distinguish between cryptos, the index
-    variable is used (which corresponds to the column
-    index):
+    To distinguish between cryptos, we use the index
+    variable (which corresponds to the column
+    indexes):
 
     /crypto/0 -> Bitcoin
     /crypto/1 -> Dogecoin
     /crypto/2 -> Ethereum
 
     The POST method is used to update the price using
-    the Binance API. The data has this format:
+    the Binance API. The data we get has this format:
     [
       {
           "symbol":"BTCUSDT",
@@ -83,8 +85,11 @@ def crypto(index):
         index (int): Index of the cryptocurrency.
     """
 
+    # Index of the last cryptocurrency
+    max_index = len(db.columns) - 2
+
     # These pages don't exist
-    if index >= len(db.columns) - 1:
+    if index > max_index:
         abort(404)
     
     # Update all prices
@@ -124,9 +129,6 @@ def crypto(index):
 
     # The returned price is 0 if the database is empty
     price = db[name].iloc[-1] if len(db) > 0 else 0.
-
-    # Index of the last cryptocurrency
-    max_index = len(db.columns) - 2
     
     # JSON schema of the plot
     plot_schema = get_plot_schema(db, name)

@@ -9,12 +9,12 @@ def load_db(path):
     """Load the database.
     
     The 'database' is actually a dataframe read from
-    the csv file. It has 4 columns:
+    the csv file. It is made of 4 columns:
 
     - Datetime: Date and time.
-    - Bitcoin: Price of the Bitcoin crypto.
-    - Dogecoin: Price of the Dogecoin crypto.
-    - Ethereum: Price of the Ethereum crypto.
+    - Bitcoin: Bitcoin price in USDT.
+    - Dogecoin: Dogecoin price in USDT.
+    - Ethereum: Ethereum price in USDT.
 
     Args:
         path (str): Path to the csv file.
@@ -57,10 +57,9 @@ def add_row(db, row):
 def get_plot_schema(db, crypto):
     """Get the Plotly JSON schema.
     
-    Cryptocurrency price graphs are plotted with
-    Plotly directly in the browser. The JSON
-    schema is used to pass the plot information
-    to javascript.
+    Cryptocurrency price graphs are plotted in the
+    browser. The JSON schema is used to pass the
+    plot information to javascript.
 
     Args:
         db (DataFrame): Database.
