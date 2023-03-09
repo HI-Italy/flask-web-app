@@ -57,8 +57,7 @@ def crypto(index):
     """Cryptocurrency pages.
     
     To distinguish between cryptos, we use the index
-    variable (which corresponds to the column
-    indexes):
+    variable:
 
     /crypto/0 -> Bitcoin
     /crypto/1 -> Dogecoin

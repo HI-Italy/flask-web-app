@@ -97,7 +97,7 @@ if __name__ == "__main__":
     db = load_db("crypto_data.csv")
     print(db.to_string())
     
-    # plot Bitcoin prices
+    # Plot Bitcoin prices
     schema = get_plot_schema(db, "Bitcoin")
     pio.show(schema)
 
