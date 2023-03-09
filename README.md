@@ -103,7 +103,7 @@ conda activate web_app_env
 
 ## App execution
 
-To execute the app, simply run:
+The app can be executed like any other python script:
 
 ```bash
 python app.py
