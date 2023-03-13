@@ -55,7 +55,7 @@ python -m venv .venv
 Once the environment is created, one can activate it by running
 
 ```bat
-.venv\Script\activate.bat
+.venv\Scripts\activate
 ```
 
 ### Linux (Debian)
@@ -75,7 +75,7 @@ python3 -m venv .venv
 Finally, the environment can be activated by executing:
 
 ```bash
-source .venv\Script\activate
+source .venv\Scripts\activate
 ```
 
 ### Dependency installation
