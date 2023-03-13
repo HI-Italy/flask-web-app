@@ -119,7 +119,7 @@ def crypto(index):
         # Add date and time to the new row
         new_row["Datetime"] = str(datetime.now())
 
-        # Add the row and save the db as a csv 
+        # Add the row and save the db as a csv file
         add_row(db, new_row)
         save_db(db, "crypto_data.csv")
     
