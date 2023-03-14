@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web app</title>
+</head>
+<body>
+    <img src="{{url_for('static', filename='uniupo-logo.svg')}}">
+    <ul>
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('data')}}">Data</a></li>
+    </ul>
+    <h1>Crypto web app</h1>
+    <p>
+        This web application will look for
+        price changes of the following cryptocurrencies:
+    </p>
+</body>
+</html>
