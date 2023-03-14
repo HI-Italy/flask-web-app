@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Web app</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-</head>
-<body>
-    <img src="{{url_for('static', filename='uniupo-logo.svg')}}">
-    <ul class="nav">
-        <li><a href="{{url_for('index')}}">Home</a></li>
-        <li><a href="{{url_for('data')}}">Data</a></li>
-    </ul>
-    <h1>Crypto web app</h1>
+{% extends 'base.html' %}
+{% block title %}Web app{% endblock %}
+{% block body %}
+<h1>Crypto web app</h1>
     <p>
         This web application will look for
         price changes of the following cryptocurrencies:
     </p>
-</body>
-</html>
+{% endblock %}
