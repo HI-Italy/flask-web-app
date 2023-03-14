@@ -75,7 +75,7 @@ python3 -m venv .venv
 Finally, the environment can be activated by executing:
 
 ```bash
-source .venv\Scripts\activate
+source .venv/Scripts/activate
 ```
 
 ### Dependency installation
