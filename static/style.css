@@ -50,13 +50,17 @@ button.floated {
   cursor: pointer;
   margin: 4px;
   height:50px;
-  width:150px;
+  width:140px;
   font-size:22px;
 }
 
 button.floated a {
   color: white;
+  display: block;
   text-decoration:none;
+  height:50px;
+  width:130px;
+  line-height: 50px;
 }
 
 button.floated:hover {
