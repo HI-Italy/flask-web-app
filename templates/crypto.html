@@ -38,10 +38,11 @@
         {% endif %}
     </button>
 
-    <!-- Button to update prices --> 
-    <form action="{{url_for('crypto', index=index)}}" method="post">
-        <button class=floated type="submit">Update</button>
-    </form>
+    <!-- Update all prices -->
+    <button class="floated">
+        <a href="{{url_for('update', index=index)}}">Update</a>
+    </button>
+
 </p>
 
 {% endblock %}
