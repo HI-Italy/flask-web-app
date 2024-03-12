@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template, url_for
 
 from database import add_row, get_plot_schema, load_db, save_db
 
@@ -19,12 +19,20 @@ def today():
     return f"{datetime.now()}"
 
 
+@app.route("/update/<int:index>")
+def update(index):
+    return redirect(url_for("crypto", index=index))
+
+
 @app.route("/crypto/<int:index>")
 def crypto(index):
     name = db.columns[index + 1]
     price = db[name].iloc[-1]
+    schema = get_plot_schema(db, name)
 
-    return render_template("crypto.html", name=name, price=price)
+    return render_template(
+        "crypto.html", name=name, price=price, schema=schema, index=index
+    )
 
 
 if __name__ == "__main__":

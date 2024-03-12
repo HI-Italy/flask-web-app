@@ -3,4 +3,15 @@
 {% block body %}
 <h1>{{name}}</h1>
 <p>Current price: {{price}} USD</p>
+<div id="plot">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script>
+        var schema = {{schema|safe}}
+        Plotly.plot("plot", schema.data, schema.layout)
+    </script>
+</div>
+<button class="floated">
+    <a href="{{url_for('update', index=index)}}">Update</a>
+</button>
 {% endblock %}
