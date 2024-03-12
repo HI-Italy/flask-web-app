@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon-32x32.png')}}">
-    <title>Web App</title>
-</head>
-<body>
-    <img src="{{url_for('static', filename='uniupo-logo.svg')}}">
-    <p>
-        <ul class="nav">
-            <li><a href="{{url_for('index')}}">Home</a></li>
-            <li><a href="{{url_for('today')}}">Today</a></li>
-        </ul>
-    </p>
-    <h1>Cryptocurrency App</h1>
-    <p>This app tracks changes in cryptovalues prices</p>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Web App{% endblock %}
+{% block body %}
+<h1>Cryptocurrency App</h1>
+<p>This app tracks changes in cryptovalues prices</p>
+{% endblock %}
